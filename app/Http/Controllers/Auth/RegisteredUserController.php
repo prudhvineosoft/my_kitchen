@@ -42,11 +42,18 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $user->assignRole('user');
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+    if ($user->hasRole('admin')) {
+        return redirect()->intended(RouteServiceProvider::HOME);
+    } elseif ($user->hasRole('client')) {
+       return redirect()->intended(RouteServiceProvider::CLIENT);
+    } elseif ($user->hasRole('user')) {
+        return redirect()->intended(RouteServiceProvider::USER);
+    }
     }
 }

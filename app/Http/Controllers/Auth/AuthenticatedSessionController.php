@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
+
 
 class AuthenticatedSessionController extends Controller
 {
@@ -33,8 +35,17 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        // $userId = Auth::id();
+        // $user = User::find($userId);
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+    //      if ($user->hasRole('admin')) {
+    //     return redirect()->intended(RouteServiceProvider::HOME);
+    // } elseif ($user->hasRole('client')) {
+    //    return redirect()->intended(RouteServiceProvider::CLIENT);
+    // } elseif ($user->hasRole('user')) {
+    //     return redirect()->intended(RouteServiceProvider::USER);
+    // }
+ return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
