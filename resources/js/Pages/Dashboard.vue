@@ -1,5 +1,6 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AdminAuthenticatedLayout from '@/Layouts/AdminAuthenticatedLayout.vue';
+
 import { Head } from '@inertiajs/vue3';
 defineProps({
     user: {
@@ -11,7 +12,7 @@ defineProps({
 <template>
     <Head title="Dashboard" />
 
-    <AuthenticatedLayout>
+    <AdminAuthenticatedLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Dashboard</h2>
         </template>
@@ -23,7 +24,7 @@ defineProps({
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </AdminAuthenticatedLayout>
 </template>
 
 <style lang="scss" scoped></style>

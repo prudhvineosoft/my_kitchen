@@ -65,14 +65,21 @@ watch(
                     </li>
                     </Link>
                     <template v-else>
-                        <Link :href="route('login')">
-                        <li class="mr-3">
+                        <Link :href="route('partner-with-us.index')">
+                        <li class="mr-3  border-y rounded-md lg:rounded-none lg:border-y-0 p-2 lg:dark:bg-transparent">
                             <a
-                                :class="route().current('login') ? 'inline-block text-blue-500 no-underline hover:text-blue-400  px-4' : 'inline-block text-white no-underline hover:text-blue-400  px-4'">Login</a>
+                                :class="route().current('partner-with-us.index') ? 'inline-block text-blue-500 no-underline hover:text-blue-400  px-4 sm:mr-20' : 'inline-block text-white no-underline hover:text-blue-400  px-4 sm:mr-20'">Add
+                                Restaurant</a>
+                        </li>
+                        </Link>
+                        <Link :href="route('login')">
+                        <li class="mr-3  border-y rounded-md lg:rounded-none lg:border-y-0 p-2 lg:dark:bg-transparent">
+                            <a
+                                :class="route().current('login') ? 'text-blue-500 inline-block  no-underline hover:text-blue-400  px-4 ' : 'text-white inline-block  no-underline hover:text-blue-400  px-4'">Login</a>
                         </li>
                         </Link>
                         <Link :href="route('register')">
-                        <li class="mr-3">
+                        <li class="mr-3  border-y rounded-md lg:rounded-none lg:border-y-0 p-2 lg:dark:bg-transparent">
                             <a
                                 :class="route().current('register') ? 'inline-block text-blue-500 no-underline hover:text-blue-400  px-4' : 'inline-block text-white no-underline hover:text-blue-400  px-4'">Register</a>
                         </li>
@@ -85,3 +92,8 @@ watch(
     </div>
     <slot />
 </template>
+<style>
+.mobileNavBg {
+    background-color: rgba(0, 0, 0, 0.712);
+}
+</style>

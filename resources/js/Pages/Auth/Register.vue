@@ -90,8 +90,4 @@ const submit = () => {
 
     </GuestLayout>
 </template>
-<style>
-.background_image {
-    background-image: url('../../../../public/images/food_xl.jpeg');
-}
-</style>
+<style></style>
